@@ -20,7 +20,6 @@ margin-bottom = 0
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
 throttle-output = 5
 throttle-output-for = 10
-;throttle-input-for = 30
 screenchange-reload = true
 compositing-background = over
 compositing-foreground = over
@@ -756,7 +755,7 @@ format-padding = 2
 ################################################################################
 
 [module/pub-ip]
-;https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-asystem
+;https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-system
 type = custom/script
 exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
@@ -851,7 +850,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/tempcores.sh
 interval = 45
 format-padding = 1
-;format-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
 format-background = ${colors.background-3}
 ;format-underline = #C1B93E
 format-prefix-foreground = #C1B93E
@@ -984,8 +983,8 @@ format-connected-padding = 2
 format-connected-foreground = #121420
 format-connected-background = ${colors.background-1}
 ;format-connected-prefix = "  " 
-format-connected-prefix-foreground = #121420
-format-connected-prefix-background = ${colors.background-1}
+;format-connected-prefix-foreground = #121420
+;format-connected-prefix-background = ${colors.background-1}
 ;format-connected-underline = #7e52c6
 
 label-disconnected = %ifname% disconnected
@@ -1009,7 +1008,6 @@ ramp-signal-5 = ▆
 ramp-signal-6 = ▇
 ramp-signal-7 = █
 ramp-signal-foreground = #7e52c6
-
 
 ################################################################################
 
