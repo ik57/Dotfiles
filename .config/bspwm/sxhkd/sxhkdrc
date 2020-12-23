@@ -42,7 +42,7 @@ super + e
 
 #Close the focused window
 super + c
-		bspc node -c
+	bspc node -c
 
 #Htop
 super + h
@@ -52,7 +52,7 @@ super + h
 super + x
     arcolinux-logout
 
-#Rofi run mode
+#Rofi combi mode
 super + r
     rofi -combi-modi window,drun,run -show combi -modi combi -theme dracula
 
@@ -66,7 +66,7 @@ super + v
 
 #dmenu
 super + d
-		rofi -show run -theme dmenu
+	rofi -show run -theme dmenu
 
 
 #Alacritty
@@ -120,10 +120,6 @@ ctrl + alt + w
 ctrl + alt + e
     arcolinux-tweak-tool
 
-#File-Manager
-ctrl + alt + b
-     thunar
-
 #Catfish
 ctrl + alt + c
      catfish
@@ -154,23 +150,11 @@ ctrl + alt + p
 
 #Xfce4-settings-manager
 ctrl + alt + m
-     xfce4-settings-manager
+    xfce4-settings-manager
 
 #Pulse Audio Control
 ctrl + alt + u
      pavucontrol
-
-#Rofi theme selector
-ctrl + alt + r
-  rofi-theme-selector
-
-#Spotify
-ctrl + alt + s
-   spotify
-
-#Termite
-ctrl + alt + Return
-    termite
 
 #termite
 ctrl + alt + t
@@ -186,14 +170,13 @@ ctrl + alt + a
 #ctrl + alt + KP_Enter
 #     termite
 
-
 #################################################################
 # ALT + ... KEYS
 #################################################################
 
 #Rofi drun mode
 alt + F1
-		rofi -show drun -theme dracula
+	rofi -show drun -theme dracula
 
 #Xfce4-appfinder
 alt + F2
@@ -201,8 +184,7 @@ alt + F2
 
 #Gmrun
 alt + F3
-		gmrun
-
+	gmrun
 
 #################################################################
 # CONTROL + SHIFT KEYS
