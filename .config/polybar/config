@@ -199,6 +199,7 @@ label-occupied-font = 4
 
 label-urgent = %icon%
 label-urgent-padding = 2
+label-urgent-background = {colors.alert}
 
 label-empty = %icon%
 label-empty-foreground = #8d99ae
@@ -988,15 +989,15 @@ format-connected-background = ${colors.background-1}
 ;format-connected-prefix-background = ${colors.background-1}
 ;format-connected-underline = #7e52c6
 
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.alert}
-label-disconnected-background = ${colors.background}
+label-disconnected = %essid% Disconnected
+label-disconnected-foreground = #edf2f4
+label-disconnected-background = ${colors.alert}
 
 format-disconnected = <label-disconnected>
-format-disconnected-foreground = ${colors.alert}
+format-disconnected-foreground = #edf2f4
 format-disconnected-background = ${colors.alert}
 format-disconnected-prefix = " ! "
-format-disconnected-prefix-foreground = ${colors.alert}
+format-disconnected-prefix-foreground = #edf2f4
 format-disconnected-prefix-background = ${colors.alert}
 ;format-disconnected-underline =${colors.alert}
 
