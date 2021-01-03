@@ -120,11 +120,11 @@ module-margin-left = 0
 module-margin-right = 0
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "JetBrainsMono-Regular:size=10;0"
+font-0 = "JetBrainsMono:style=Regular:size=10;0"
 font-1 = "FontAwesome:size=13;0"
-font-2 = "JetBrainsMono-Regular:size=10;0"
-font-3 = "FiraCode:size=12;0"
-font-4 = "JetBrainsMono-Bold:size=18;0"
+font-2 = "JetBrainsMono:style=Regular:size=14;0"
+font-3 = "FiraCode:style:Bold:size=11;0"
+font-4 = "JetBrainsMono:style=Bold:size=16;0"
 
 modules-left = bspwm
 modules-center = xwindow
@@ -181,25 +181,25 @@ ws-icon-default = " "
 
 
 format = <label-state> <label-mode>
-format-font = 3
+format-font = 1
 
 label-focused = %icon%
 label-focused-background = #1d242d
 ;label-focused-underline= #6790eb
 label-focused-padding = 4
 label-focused-foreground = #01baef
-label-focused-font = 4
+label-focused-font = 5
 
 label-occupied = %icon%
 label-occupied-padding = 2
 label-occupied-background = ${colors.background}
 label-occupied-foreground = #edf2f4
-label-occupied-font = 4
+label-occupied-font = 3
 
 
 label-urgent = %icon%
 label-urgent-padding = 2
-label-urgent-background = {colors.alert}
+label-urgent-background = ${colors.alert}
 
 label-empty = %icon%
 label-empty-foreground = #8d99ae
