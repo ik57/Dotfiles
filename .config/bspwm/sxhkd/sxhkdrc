@@ -54,7 +54,7 @@ super + x
 
 #Rofi combi mode
 super + r
-    rofi -combi-modi window,drun,run -show combi -modi combi -theme dracula
+    rofi -combi-modi window,drun,run -show combi -modi combi
 
 #alacritty
 super + t
@@ -66,8 +66,7 @@ super + v
 
 #dmenu
 super + d
-	rofi -show run -theme dmenu
-
+	rofi -show drun -theme ik57-dmenu.rasi
 
 #Alacritty
 super + Return
@@ -78,9 +77,9 @@ super + Escape
     xkill
 
 #Keyboard dependent
-#termite
+#alacritty
 super + KP_Enter
-	termite
+	alacritty
 
 #################################################################
 # SUPER + SHIFT KEYS
@@ -92,12 +91,12 @@ super + shift + Return
 
 #Keyboard dependent
 #File-Manager
-#super + shift + KP_Enter
-#	thunar
+super + shift + KP_Enter
+	thunar
 
 #dmenu
 super + shift + d
-	dmenu_run -i -nb '#212121' -nf '#FF4081' -sb '#0288D1' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+	dmenu_run -i -nb '#212121' -nf '#FF4081' -sb '#0288D1' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16'
 
 #reload sxhkd:
 super + shift + s
@@ -106,7 +105,6 @@ super + shift + s
 #Keyboard dependent
 #super + shift + KP_Enter
 #	thunar
-
 
 #################################################################
 # CONTROL + ALT KEYS
@@ -156,14 +154,9 @@ ctrl + alt + m
 ctrl + alt + u
      pavucontrol
 
-#termite
-ctrl + alt + t
-    termite
-
 #Xfce4-appfinder
 ctrl + alt + a
     xfce4-appfinder
-
 
 #Keyboard dependent
 #termite
@@ -176,7 +169,7 @@ ctrl + alt + a
 
 #Rofi drun mode
 alt + F1
-	rofi -show drun -theme dracula
+	rofi -show drun
 
 #Xfce4-appfinder
 alt + F2
@@ -194,7 +187,6 @@ alt + F3
 ctrl + shift + Escape
     xfce4-taskmanager
 
-
 #################################################################
 #     SCREENSHOTS
 #################################################################
@@ -211,7 +203,6 @@ ctrl + Print
 ctrl + shift + Print
      gnome-screenshot -i
 
-
 #################################################################
 #     FUNCTION KEYS
 #################################################################
@@ -219,7 +210,6 @@ ctrl + shift + Print
 #xfce4-terminal dropdown
 F12
     xfce4-terminal --drop-down
-
 
 #################################################################
 #     MULTIMEDIA KEYS
