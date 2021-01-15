@@ -42,7 +42,7 @@ super + e
 
 #Close the focused window
 super + c
-	bspc node -c
+    bspc node -c
 
 #Htop
 super + h
@@ -102,10 +102,6 @@ super + shift + d
 super + shift + s
 	pkill -USR1 -x sxhkd
 
-#Keyboard dependent
-#super + shift + KP_Enter
-#	thunar
-
 #################################################################
 # CONTROL + ALT KEYS
 #################################################################
@@ -148,7 +144,7 @@ ctrl + alt + p
 
 #Xfce4-settings-manager
 ctrl + alt + m
-    xfce4-settings-manager
+     xfce4-settings-manager
 
 #Pulse Audio Control
 ctrl + alt + u
@@ -173,7 +169,7 @@ alt + F1
 
 #Xfce4-appfinder
 alt + F2
-    xfce4-appfinder
+	xfce4-appfinder
 
 #Gmrun
 alt + F3
@@ -322,7 +318,9 @@ super + BackSpace
 # SUPER + ALT KEYS
 #################################################################
 
-
+# Move floating window
+super + alt + {_,shift + }{Left,Down,Up,Right}
+	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
 
 #################################################################
 # SUPER + CONTROL KEYS
@@ -357,9 +355,21 @@ super + {_,shift + }{h,j,k,l}
 super + {_,shift + }a
 	bspc node @/ --flip {vertical,horizontal}
 
-# Move floating window (Not working)
-super + shift + {Left,Down,Up,Right}
-	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
+# Move focused window to other monitor
+super + shift + Left
+	bspc node -m next --follow
+
+# Move focused window to other monitor
+super + shift + Right
+		bspc node -m next --follow
+
+# Move focused window to other monitor
+super + shift + Up
+	bspc node -m next --follow
+
+# Move focused window to other monitor
+super + shift + Down
+		bspc node -m next --follow
 
 #################################################################
 # SUPER + CONTROL KEYS
