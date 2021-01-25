@@ -24,7 +24,7 @@ $HOME/.config/polybar/launch.sh &
 #feh --randomize --bg-fill ~/Képek/*
 #feh --randomize --bg-fill ~/Dropbox/Apps/Desktoppr/*
 
-dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+#dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 xsetroot -cursor_name left_ptr &
 run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 
