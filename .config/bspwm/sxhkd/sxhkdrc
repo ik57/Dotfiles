@@ -19,10 +19,6 @@ super + F2
 super + F5
     meld
 
-#Vlc
-super + F6
-    vlc --video-on-top
-
 #Rofi Fullscreen
 super + F11
     rofi -show run -fullscreen
@@ -106,17 +102,9 @@ super + shift + s
 # CONTROL + ALT KEYS
 #################################################################
 
-#arcolinux-welcome-app
-ctrl + alt + w
-     arcolinux-welcome-app
-
 #arcolinux-tweak-tool
 ctrl + alt + e
     arcolinux-tweak-tool
-
-#Catfish
-ctrl + alt + c
-     catfish
 
 #Chromium
 ctrl + alt + g
@@ -446,14 +434,6 @@ ctrl + alt + Down
 #Focus selected desktop FOR QWERTY KEYBOARDS
 super + {1-9,0}
 	bspc desktop -f '^{1-9,10}'
-
-#Focus selected desktop	FOR BELIGIAN AZERTY KEYBOARDS
-#super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
-#    bspc desktop -f '^{1-9,10}'
-
-#Focus selected desktop	FOR FRNECH AZERTY KEYBOARDS
-#super + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
-#    bspc desktop -f '^{1-9,10}'
 
 #################################################################
 
