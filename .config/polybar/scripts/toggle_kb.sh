@@ -16,5 +16,3 @@ if [ "$CURRENT_LAYOUT" = "us" ]; then
 else
     setxkbmap "us"
 fi
-
-echo $CURRENT_LAYOUT
