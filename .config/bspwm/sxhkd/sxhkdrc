@@ -34,7 +34,7 @@ super + {Left,Down,Up,Right}
 
 #Atom
 super + e
-    atom
+    geany
 
 #Close the focused window
 super + c
@@ -42,7 +42,7 @@ super + c
 
 #Htop
 super + h
-    urxvt 'htop task manager' -e htop
+    alacritty -e htop
 
 #arcolinux-logout
 super + x
@@ -60,7 +60,7 @@ super + t
 super + v
     pavucontrol
 
-#dmenu
+#rofi drun mode, dmenu theme
 super + d
 	rofi -show drun -theme ik57-dmenu.rasi
 
@@ -76,7 +76,7 @@ super + Escape
 #alacritty
 super + KP_Enter
 	alacritty
-
+  
 #################################################################
 # SUPER + SHIFT KEYS
 #################################################################
@@ -92,11 +92,15 @@ super + shift + KP_Enter
 
 #dmenu
 super + shift + d
-	dmenu_run -i -nb '#212121' -nf '#FF4081' -sb '#0288D1' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16'
+	dmenu_run -i -nb '#212121' -nf '#FF4081' -sb '#0288D1' -sf '#191919' -fn 'JetBrainsMono-Regular:bold:pixelsize=22'
 
 #reload sxhkd:
 super + shift + s
 	pkill -USR1 -x sxhkd
+
+# Rotate tree
+super + shift + {f,b}
+    bspc node @/ -C {forward,backward}
 
 #################################################################
 # CONTROL + ALT KEYS
@@ -105,14 +109,6 @@ super + shift + s
 #arcolinux-tweak-tool
 ctrl + alt + e
     arcolinux-tweak-tool
-
-#Chromium
-ctrl + alt + g
-    chromium -no-default-browser-check
-
-#Firefox
-ctrl + alt + f
-     firefox
 
 #Nitrogen
 ctrl + alt + i
@@ -187,9 +183,6 @@ ctrl + Print
 #     FUNCTION KEYS
 #################################################################
 
-#xfce4-terminal dropdown
-F12
-    xfce4-terminal --drop-down
 
 #################################################################
 #     MULTIMEDIA KEYS
@@ -278,10 +271,6 @@ super + p
 super + q
 	bspc node -c
 
-#################################################################
-# SUPER KEYS
-#################################################################
-
 #Focus selected desktop
 super + Tab
 	bspc desktop -f '^{1-9,10}'
@@ -297,7 +286,13 @@ super + space
 # Move focus to other monitor
 super + BackSpace
 		bspc monitor -f next
-
+		
+# Expand/contract a window by moving one of its side outward/inward
+super + s : {h,j,k,l}
+    STEP=20; SELECTION={1,2,3,4}; \
+    bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+    bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+    
 #################################################################
 # SUPER + ALT KEYS
 #################################################################
@@ -400,9 +395,7 @@ alt + space
 # ALT + SHIFT KEYS
 #################################################################
 
-# Expand tiled space
-alt + shift + {h,j,k,l}
-	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
 
 #################################################################
 # CTRL + ALT KEYS
