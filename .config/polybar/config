@@ -128,7 +128,7 @@ font-4 = "JetBrainsMono:style=Bold:size=16;0"
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = pavolume weather xkeyboard date wireless-network
+modules-right =   pavolume weather toggle_kb xkeyboard date wireless-network
 
 tray-detached = false
 tray-offset-x = 0
@@ -927,7 +927,7 @@ format-muted-background = ${colors.background}
 
 [module/weather]
 type = custom/script
-interval = 10
+interval = 420
 format = <label>
 ;format-prefix = " "
 ;format-prefix-foreground = #3EC13F
@@ -1053,7 +1053,7 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background-3}
 
 label-layout = %name%
-label-layout-margin = 1
+;label-layout-margin = 1
 ;label-layout-underline = #3ecfb2
 ;label-indicator-padding = 2
 ;label-indicator-margin = 2
@@ -1079,3 +1079,11 @@ format-foreground = #fbfefb
 format-background = ${colors.background}
 
 ###############################################################################
+
+[module/toggle_kb]
+type = custom/script
+exec = echo 'Toggle KB |'
+click-left = ~/.config/polybar/scripts/toggle_kb.sh
+format-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-3}
