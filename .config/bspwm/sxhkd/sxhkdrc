@@ -106,32 +106,16 @@ super + shift + {f,b}
 # CONTROL + ALT KEYS
 #################################################################
 
-#arcolinux-tweak-tool
-ctrl + alt + e
-    arcolinux-tweak-tool
-
 #Nitrogen
-ctrl + alt + i
+ctrl + alt + n
      nitrogen
-
-#arcolinux-logout
-ctrl + alt + k
-     arcolinux-logout
-
-#arcolinux-logout
-ctrl + alt + l
-    arcolinux-logout
-
-#Pamac-manager
-ctrl + alt + p
-    pamac-manager
 
 #Xfce4-settings-manager
 ctrl + alt + m
      xfce4-settings-manager
 
 #Pulse Audio Control
-ctrl + alt + u
+ctrl + alt + v
      pavucontrol
 
 #Xfce4-appfinder
@@ -302,14 +286,6 @@ super + alt + {_,shift + }{Left,Down,Up,Right}
 	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
 
 #################################################################
-# SUPER + CONTROL KEYS
-#################################################################
-
-# Cancel preselection
-super + ctrl + space
-	bspc node --presel-dir cancel
-
-#################################################################
 # SUPER + SHIFT KEYS
 #################################################################
 
@@ -362,18 +338,13 @@ super + ctrl + {Left,Down,Up,Right}
 super + ctrl + {h,j,k,l}
 	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
 
-# Focus parent/brother/first/second for preselection
-super + ctrl + {e,r,t,y}
-	bspc node --focus @{parent,brother,first,second}
-
 # Preselect the splitting area for next window on leaf/parent
 super + ctrl + {u,i,o,p}
 	bspc node --presel-dir \~{west,south,north,east}
 
-# Define splitting ratio for next window on leaf/parent
-super + ctrl + {_,shift +}{1-9}
-	bspc node {_,@/} --presel-ratio 0.{1-9}
-
+# Cancel preselection
+super + ctrl + space
+	bspc node --presel-dir cancel
 
 #################################################################
 # ALT KEYS
@@ -390,12 +361,6 @@ alt + shift + Tab
 #Rotate desktop
 alt + space
 	bspc node @/ --rotate {90,-90}
-
-#################################################################
-# ALT + SHIFT KEYS
-#################################################################
-
-
 
 #################################################################
 # CTRL + ALT KEYS
