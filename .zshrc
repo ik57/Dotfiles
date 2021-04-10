@@ -48,7 +48,7 @@ ZSH_THEME="spaceship"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+  COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -61,7 +61,7 @@ ZSH_THEME="spaceship"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -116,11 +116,10 @@ if [ -d "$HOME/.local/bin" ] ;
 fi
 
 #list
-alias ls='ls --color=auto'
+alias ls='exa --group-directories-first'
 alias la='ls -a'
-alias ll='ls -la'
-alias l='ls'
-alias l.="ls -A | egrep '^\.'"
+alias ll='ls -mlh'
+alias ls.="ls -a | egrep '^\.'"
 
 #fix obvious typo's
 alias cd..='cd ..'
@@ -196,10 +195,7 @@ alias trizenskip='trizen -S --skipinteg'
 alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
 #get fastest mirrors in your neighborhood
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 200 --fastest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --age 2 --latest 30 --protocol https,http --connection-timeout 2 --download-timeout 3 --fastest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo /usr/local/bin/arcolinux-vbox-share"
@@ -293,4 +289,4 @@ ex ()
 
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 
-neofetch
+hfetch
