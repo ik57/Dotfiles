@@ -159,15 +159,14 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
+schemes:
 # More themes: https://github.com/eendroroy/alacritty-theme/tree/master/themes
-# Colors (Horizon Dark)
-colors:
-  # Primary colors
+
+	horizon_dark: &horizon_dark
   primary:
     background: '#212121'
     foreground: '#f3f4f5'
-
-  # Normal colors
+    
   normal:
     black: '0x16161c'
     red: '0xe95678'
@@ -178,7 +177,6 @@ colors:
     cyan: '#00BCD4'
     white: '0xd5d8da'
 
-  # Bright colors
   bright:
     black: '0x5b5858'
     red: '0xec6a88'
@@ -188,14 +186,59 @@ colors:
     magenta: '0xf075b5'
     cyan: '#00BCD4'
     white: '0xd5d8da'
+    
+    #primary:
+      #background: '0x1e1c31'
+      #foreground: '0xcbe3e7'
+    #cursor:
+      #text: '0x1e1c31'
+      #cursor: '0xa1efd3'
+    #normal:
+      #black: '0x1e1c31'
+      #red: '0xf48fb1'
+      #green: '0x009F6B'
+      #yellow: '0xffe6b3'
+      #blue: '0x91ddff'
+      #magenta: '0xd4bfff'
+      #cyan: '0x87dfeb'
+      #white: '0xcbe3e7'
+    #bright:
+      #black: '0x585273'
+      #red: '0xf02e6e'
+      #green: '0x62d196'
+      #yellow: '0xf2b482'
+      #blue: '0x65b2ff'
+      #magenta: '0xa37acc'
+      #cyan: '0x63f2f1'
+      #white: '0x8a889d'
+ 
+	hybrid: &hybrid     
+    primary:
+      background: '0x27292c'
+      foreground: '0xd0d2d1'
 
-# Colors (Tomorrow Night)
-#colors:
-  # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+    normal:
+      black:   '0x35383b'
+      red:     '0xb05655'
+      green:   '0x769972'
+      yellow:  '0xe1a574'
+      blue:    '0x7693ac'
+      magenta: '0x977ba0'
+      cyan:    '0x749e99'
+      white:   '0x848b92'
 
+    bright:
+      black:   '0x484c52'
+      red:     '0xd27c7b'
+      green:   '0xdffebe'
+      yellow:  '0xf0d189'
+      blue:    '0x96b1c9'
+      magenta: '0xbfa5c7'
+      cyan:    '0x9fc9c3'
+      white:   '0xfcf7e2'
+
+colors: *hybrid
+      
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not present.
