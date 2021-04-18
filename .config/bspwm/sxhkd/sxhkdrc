@@ -9,9 +9,9 @@
 
 # Atom
 super + F1
-	atom
+	geany
 
-# firefox
+# Browser
 super + F2
 	firefox
 
@@ -32,7 +32,7 @@ super + F11
 super + {Left,Down,Up,Right}
 	bspc node --{focus} {west,south,north,east}
 
-#Atom
+#geany
 super + e
     geany
 
