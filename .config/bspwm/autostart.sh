@@ -31,7 +31,7 @@ run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 #conky -c $HOME/.config/bspwm/system-overview &
 run nm-applet &
 run pamac-tray &
-#run xfce4-power-manager &
+run xfce4-power-manager &
 numlockx on &
 #blueberry-tray &
 picom --config $HOME/.config/bspwm/picom.conf &
