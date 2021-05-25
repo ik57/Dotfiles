@@ -7,9 +7,9 @@
 #################################################################
 
 
-# Geany
+#Sublime
 super + F1
-	geany
+	subl
 
 # Browser
 super + F2
@@ -27,21 +27,21 @@ super + F5
 super + {Left,Down,Up,Right}
 	bspc node --{focus} {west,south,north,east}
 
-#geany
-super + e
-    geany
-
 #Close the focused window
 super + c
     bspc node -c
 
+#rofi drun mode, dmenu theme
+super + d
+	rofi -show drun -theme ik57-dmenu.rasi
+
 #Htop
 super + h
     alacritty -e htop
-
-#arcolinux-logout
-super + x
-    arcolinux-logout
+    
+# List sxhkd keybindings help menu with rofi
+super + k
+	~/.config/bspwm/scripts/sxhkd-help
 
 #Rofi combi mode
 super + r
@@ -54,10 +54,10 @@ super + t
 #Pavucontrol
 super + v
     pavucontrol
-
-#rofi drun mode, dmenu theme
-super + d
-	rofi -show drun -theme ik57-dmenu.rasi
+    
+#arcolinux-logout
+super + x
+    arcolinux-logout
 
 #Alacritty
 super + Return
