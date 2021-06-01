@@ -28,8 +28,8 @@ compositing-overline = over
 compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = #FF0000
-format-background = #00FF00
+format-foreground = #fafafa
+format-background = #aa2F343F
 ;format-underline =
 format-overline =
 format-spacing =
@@ -67,7 +67,7 @@ volume-max = #c23127
 ;secondary = #e60053
 ;alert = #bd2c40
 
-foreground = #212121
+foreground = #fbfefb
 alert = #fd446b
 background-1 = #f2b5d4
 background-2 = #f7d6e0
@@ -128,7 +128,7 @@ font-4 = "JetBrainsMono:style=Bold:size=16;0"
 
 modules-left =   bspwm
 modules-center = xwindow
-modules-right =  pavolume weather toggle_kb xkeyboard date wireless-network
+modules-right =  pavolume sep weather sep toggle_kb xkeyboard sep date sep
 
 tray-detached = false
 tray-offset-x = 0
@@ -137,7 +137,7 @@ tray-padding =  2
 tray-maxsize =  20
 tray-scale =    1.0
 tray-position = right
-tray-background = #7796cb
+tray-background = ${colors.background}
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
@@ -252,7 +252,7 @@ time-alt = %c
 ;format-prefix-foreground = #c1941a
 ;format-underline = #1b2432
 format-foreground = ${colors.foreground}
-format-background = ${colors.background-2}
+format-background = ${colors.background}
 label = %date% %time%
 format-padding = 2
 
@@ -345,7 +345,7 @@ scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 ;format-underline = #3EC13F
 format-foreground = ${colors.foreground}
-format-background = ${colors.background-5}
+format-background = ${colors.background}
 format-padding = 2
 
 ################################################################################
@@ -390,7 +390,7 @@ bar-volume-empty = 
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.background-5}
+format-volume-background = ${colors.background}
 format-muted-prefix = "  "
 format-muted-prefix-foreground = "#ff0000"
 format-muted-foreground = ${colors.foreground}
@@ -406,7 +406,7 @@ format = <label>
 ;format-prefix-foreground = #3EC13F
 ;format-underline = #3EC13F
 format-foreground = ${colors.foreground}
-format-background = ${colors.background-4}
+format-background = ${colors.background}
 format-padding = 2
 exec = python -u ~/.config/polybar/scripts/weather.py
 tail = true
@@ -450,13 +450,13 @@ label-disconnected-foreground = ${colors.foreground}
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-label-connected = %local_ip%
+label-connected = %essid%
 
 format-connected = <label-connected>
 format-connected-padding = 2
 ;format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = #121420
-format-connected-background = ${colors.background-1}
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background}
 ;format-connected-prefix = "  " 
 ;format-connected-prefix-foreground = #121420
 ;format-connected-prefix-background = ${colors.background-1}
@@ -498,14 +498,14 @@ blacklist-0 = num lock
 ;format-prefix-background = ${colors.background-3}
 ;format-prefix-underline = #3ecfb2
 format-foreground = ${colors.foreground}
-format-background = ${colors.background-3}
+format-background = ${colors.background}
 
 label-layout = %name%
 ;label-layout-margin = 1
 ;label-layout-underline = #3ecfb2
 ;label-indicator-padding = 2
 ;label-indicator-margin = 2
-label-indicator-background = ${colors.background-3}
+label-indicator-background = ${colors.background}
 ;label-indicator-underline = ${colors.foreground}
 
 ################################################################################
@@ -521,7 +521,7 @@ format = <label>
 format-font = 4
 format-padding = 2
 label = %title%
-label-maxlen = 100
+label-maxlen = 75
 
 format-foreground = #fbfefb
 format-background = ${colors.background}
@@ -534,4 +534,14 @@ exec = echo 'Toggle KB |'
 click-left = ~/.config/polybar/scripts/toggle_kb.sh
 format-padding = 1
 format-foreground = ${colors.foreground}
-format-background = ${colors.background-3}
+format-background = ${colors.background}
+
+###############################################################################
+
+; Workaround for using a module separator with a different foreground color than
+; the one defined for the whole bar.
+[module/sep]
+type = custom/text
+content = |
+content-foreground = ${colors.foreground}
+content-padding = 0

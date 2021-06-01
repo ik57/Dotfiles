@@ -1,3 +1,4 @@
 configuration {
-	theme: "themes/dracula.rasi";
+modi: "window,drun,ssh,run";
+theme: "themes/dracula.rasi";
 }
