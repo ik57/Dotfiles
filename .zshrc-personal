@@ -1,3 +1,10 @@
+#	██╗██╗  ██╗███████╗███████╗
+#	██║██║ ██╔╝██╔════╝╚════██║
+#	██║█████╔╝ ███████╗    ██╔╝     https://github.com/ik57/Dotfiles
+#	██║██╔═██╗ ╚════██║   ██╔╝
+#	██║██║  ██╗███████║   ██║
+#	╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝
+
 #SPACESHIP_PROMPT
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
@@ -14,11 +21,25 @@ SPACESHIP_XCODE_SHOW_LOCAL=false
 SPACESHIP_JULIA_SHOW=false
 SPACESHIP_EMBER_SHOW=false
 
-#Bat theme
+# Bat theme
 export BAT_THEME="base16"
 
-# Print "ik57 when load terminal
-figlet "ik57" -f ANSI\ Shadow.flf | lolcat
+# Colorize commands output
+alias ip='ip -c' 
+
+# Load terminal
+#figlet "ik57" -f ANSI\ Shadow.flf | lolcat
 
 # Config dotfiles repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/Dotfiles/ --work-tree=$HOME'
+
+# Read random documentation to find some interesting commands. q to go to the next one. Ctrl-C to end it.
+alias tinder='cd /usr/bin ; ls -1 | shuf | xargs man'
+
+# XDG directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export Git="$XDG_CONFIG_HOME"/git/config
+export ATOM_HOME="$XDG_DATA_HOME"/atom 

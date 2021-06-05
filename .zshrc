@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 #installation via script from github
 #export ZSH="/home/$USER/.oh-my-zsh"
-#installation via yay -S oh-my-zsh-git
+#installation via paru -S oh-my-zsh-git
 export ZSH=/usr/share/oh-my-zsh/
 
 # Set name of the theme to load --- if set to "random", it will
@@ -17,6 +17,7 @@ ZSH_THEME="spaceship"
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
+
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -103,7 +104,13 @@ setopt GLOB_DOTS
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export HISTCONTROL=ignoreboth:erasedups
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+#export HISTCONTROL=ignoreboth:erasedups
+# Make nano the default editor
+
+export EDITOR='nano'
+export VISUAL='nano'
 
 #PS1='[\u@\h \W]\$ '
 
@@ -125,7 +132,8 @@ alias ls.="ls -a | egrep '^\.'"
 alias cd..='cd ..'
 alias pdw="pwd"
 alias udpate='sudo pacman -Syu'
-alias upate='sudo pacman -Syu'
+alias upate='sudo pacman -Syyu'
+alias upal="paru -Syu --noconfirm"
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
@@ -137,6 +145,9 @@ alias df='df -h'
 
 #pacman unlock
 alias unlock="sudo rm /var/lib/pacman/db.lck"
+
+#arcolinux logout unlock
+alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
 
 #free
 alias free="free -mt"
@@ -159,8 +170,8 @@ alias pacman='sudo pacman --color auto'
 alias update='sudo pacman -Syu'
 
 # yay as aur helper - updates everything
-alias pksyua="yay -Syu --noconfirm"
-alias upall="yay -Syu --noconfirm"
+alias pksyua="paru -Syu --noconfirm"
+alias upall="paru -Syu --noconfirm"
 
 #ps
 alias psa="ps auxf"
@@ -184,6 +195,10 @@ alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
+#switch between lightdm and sddm
+alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
+alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
+
 #hardware info --short
 alias hw="hwinfo --short"
 
@@ -195,7 +210,8 @@ alias trizenskip='trizen -S --skipinteg'
 alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
 #get fastest mirrors in your neighborhood
-alias mirrors="sudo reflector --age 2 --latest 30 --protocol https,http --connection-timeout 2 --download-timeout 3 --fastest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --age 6 --latest 75 --protocol https --connection-timeout 2 --download-timeout 3 --fastest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo /usr/local/bin/arcolinux-vbox-share"
@@ -230,17 +246,26 @@ alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
+#search content with ripgrep
+alias rg="rg --sort path"
+
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
 #nano for important configuration files
 #know what you do in these files
-alias nlightdm="sudo nano /etc/lightdm/lightdm.conf"
-alias npacman="sudo nano /etc/pacman.conf"
-alias ngrub="sudo nano /etc/default/grub"
-alias nmkinitcpio="sudo nano /etc/mkinitcpio.conf"
-alias nmirrorlist="sudo nano /etc/pacman.d/mirrorlist"
-alias nconfgrub="sudo nano /boot/grub/grub.cfg"
+alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
+alias npacman="sudo $EDITOR /etc/pacman.conf"
+alias ngrub="sudo $EDITOR /etc/default/grub"
+alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
+alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
+alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
+alias nsddm="sudo $EDITOR /etc/sddm.conf"
+alias nfstab="sudo $EDITOR /etc/fstab"
+alias nnsswitch="sudo $EDITOR /etc/nsswitch.conf"
+alias nsamba="sudo $EDITOR /etc/samba/smb.conf"
+alias nb="$EDITOR ~/.bashrc"
+alias nz="$EDITOR ~/.zshrc"
 
 #gpg
 #verify signature for isos
@@ -256,6 +281,13 @@ alias downgrada="sudo downgrade --ala-url https://bike.seedhost.eu/arcolinux/"
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
+
+#shutdown or reboot
+alias ssn="sudo shutdown now"
+alias sr="sudo reboot"
+
+#give the list of all installed desktops - xsessions desktops
+alias xd="ls /usr/share/xsessions"
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
@@ -276,7 +308,7 @@ ex ()
       *.7z)        7z x $1      ;;
       *.deb)       ar x $1      ;;
       *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;
+      *.tar.zst)   tar xf $1    ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -290,3 +322,4 @@ ex ()
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 
 hfetch
+pacman1
