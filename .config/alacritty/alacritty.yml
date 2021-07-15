@@ -14,7 +14,7 @@ env:
 
 # Import colors scheme
 import:
-  -  ~/.config/alacritty/colors/andromeda.yml
+  -  ~/.config/alacritty/colors/atlantis.yml
 
 window:
   # Window dimensions (changes require restart)
