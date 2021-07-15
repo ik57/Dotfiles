@@ -145,6 +145,7 @@ alias df='df -h'
 
 #pacman unlock
 alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
 
 #arcolinux logout unlock
 alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
@@ -203,6 +204,7 @@ alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable s
 alias hw="hwinfo --short"
 
 #skip integrity check
+alias paruskip='paru -S --mflags --skipinteg'
 alias yayskip='yay -S --mflags --skipinteg'
 alias trizenskip='trizen -S --skipinteg'
 
@@ -212,6 +214,7 @@ alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 #get fastest mirrors in your neighborhood
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --age 6 --latest 75 --protocol https --connection-timeout 2 --download-timeout 3 --fastest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrorx="sudo reflector --protocol https --fastest 30 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo /usr/local/bin/arcolinux-vbox-share"
@@ -322,4 +325,3 @@ ex ()
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 
 hfetch
-pacman1
