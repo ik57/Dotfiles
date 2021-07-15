@@ -128,7 +128,7 @@ ctrl + alt + a
 
 #Rofi drun mode
 alt + F1
-	rofi -show drun -theme ~/.config/rofi/themes/Dracula-Rofi.rasi -fullscreen
+	rofi -show drun -theme ~/.config/rofi/themes/ik-fullscreen.rasi
 
 #Xfce4-appfinder
 alt + F2
