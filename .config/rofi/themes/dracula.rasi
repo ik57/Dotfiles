@@ -30,6 +30,11 @@ element {
   text-color: @blue;
 }
 
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
 element selected {
   text-color: @purple;
 }

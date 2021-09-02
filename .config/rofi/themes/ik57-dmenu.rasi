@@ -13,8 +13,8 @@
     border-color:               #212121;
     text-color:                 #8d99ae;
     height:                     32px;
-    font:                       "JetBrainsMono-Regular 16";
-    prompt-font:                "JetBrainsMono-Bold 16";
+    font:                       "JetBrainsMono Nerd Font Mono Medium 16";
+    prompt-font:                "JetBrainsMono Nerd Font Mono Bold 16";
     prompt-background:          #7796cb;
     prompt-foreground:          #ffffff;
     prompt-padding:             4px;
@@ -53,4 +53,8 @@
 #element selected {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
 }
