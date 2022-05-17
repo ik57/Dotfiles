@@ -45,7 +45,7 @@ super + k
 
 #Rofi combi mode
 super + r
-    rofi -combi-modi window,drun,run -show combi -modi combi
+    rofi -combi-modi window,drun,run -show combi -modi combi -theme catppuccin.rasi
 
 #alacritty
 super + t
@@ -55,9 +55,9 @@ super + t
 super + v
     pavucontrol
     
-#arcolinux-logout
+#archlinux-logout
 super + x
-    arcolinux-logout
+    archlinux-logout
 
 #Alacritty
 super + Return
@@ -126,7 +126,7 @@ ctrl + alt + a
 # ALT + ... KEYS
 #################################################################
 
-#Rofi drun mode
+#Rofi drun mode fullscreen
 alt + F1
 	rofi -show drun -theme ~/.config/rofi/themes/ik-fullscreen.rasi
 
