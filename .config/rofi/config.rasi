@@ -1,4 +1,4 @@
 configuration {
 modi: "window,drun,ssh,run";
-theme: "themes/dracula.rasi";
 }
+@theme "catppuccin"
