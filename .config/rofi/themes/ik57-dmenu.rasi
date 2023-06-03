@@ -9,17 +9,16 @@
  */
 
 *{
-    background-color:           #2F343F;
-    border-color:               #212121;
-    text-color:                 #8d99ae;
+    background-color:           #1E1D2F;
+    border-color:               #1E1D2F;
+    text-color:                 #D9E0EE;
     height:                     32px;
-    font:                       "JetBrainsMono Nerd Font Mono Medium 16";
-    prompt-font:                "JetBrainsMono Nerd Font Mono Bold 16";
-    prompt-background:          #7796cb;
+    font:                       "JetBrainsMono Nerd Font Mono Medium 14";
+    prompt-background:          #5e81ac;
     prompt-foreground:          #ffffff;
-    prompt-padding:             4px;
-    selected-normal-background: #425768;
-    selected-normal-foreground: #fff;
+    prompt-padding:             1px;
+    selected-background: #1E1D2F;
+    selected-foreground: #F28FAD;
 }
 #window {
     anchor: north;
@@ -40,6 +39,7 @@
 }
 #listview {
     layout: horizontal;
+    spacing:    2px;
     lines: 100;
 }
 #entry {
@@ -48,13 +48,13 @@
     width: 10em;
 }
 #element {
-    padding: 2px 8px;
+    padding: 0px 8px;
 }
 #element selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+    background-color: @selected-background;
+    text-color:       @selected-foreground;
 }
-element-text {
+element-text, element-icon {
     background-color: inherit;
     text-color:       inherit;
 }
