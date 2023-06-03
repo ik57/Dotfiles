@@ -1,3 +1,4 @@
+###
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -171,15 +172,15 @@ alias free="free -mt"
 alias wget="wget -c"
 
 #userlist
-alias userlist="cut -d: -f1 /etc/passwd"
+alias userlist="cut -d: -f1 /etc/passwd | sort"
 
 #merge new settings
 alias merge="xrdb -merge ~/.Xresources"
 
 # Aliases for software managment
-# pacman or pm
-alias pacman='sudo pacman --color auto'
-alias update='sudo pacman -Syu'
+# pacman
+alias pacman="sudo pacman --color auto"
+alias update="sudo pacman -Syyu"
 
 # paru as aur helper - updates everything
 alias pksyua="paru -Syu --noconfirm"
@@ -196,7 +197,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias update-fc="sudo fc-cache -fv"
 
 #copy/paste all content of /etc/skel over to home folder - backup of config created - beware
-alias skel='[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~'
+
 #backup contents of /etc/skel to hidden backup folder in home/user
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
@@ -216,6 +217,9 @@ alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable s
 #hardware info --short
 alias hw="hwinfo --short"
 
+#audio check pulseaudio or pipewire
+alias audio="pactl info | grep 'Server Name'"
+
 #skip integrity check
 alias paruskip='paru -S --mflags --skipinteg'
 alias yayskip='yay -S --mflags --skipinteg'
@@ -225,7 +229,7 @@ alias trizenskip='trizen -S --skipinteg'
 alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
 #get fastest mirrors 
-alias mirror="sudo reflector --protocol https --fastest 30 --sort rate --connection-timeout 2 --download-timeout 3 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirror="sudo reflector --protocol https --fastest 30 --sort rate --connection-timeout 5 --download-timeout 4 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --age 6 --latest 75 --protocol https --connection-timeout 2 --download-timeout 3 --fastest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --protocol https --fastest 30 --sort rate --connection-timeout 2 --download-timeout 2 --age 1 --verbose --save /etc/pacman.d/mirrorlist"
 

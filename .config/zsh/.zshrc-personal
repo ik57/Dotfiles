@@ -20,6 +20,9 @@ alias ip='ip -c'
 # Config dotfiles repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/Dotfiles/ --work-tree=$HOME'
 
+# Show wifi pass
+alias showWifiPass='nmcli device wifi show-password'
+
 # Read random documentation to find some interesting commands. q to go to the next one. Ctrl-C to end it.
 alias tinder='cd /usr/bin ; ls -1 | shuf | xargs man'
 
