@@ -16,7 +16,7 @@ function run {
 $HOME/.config/polybar/launch.sh &
 
 #change your keyboard if you need it
-#setxkbmap -layout be
+#setxkbmap -layout us
 
 #Some ways to set your wallpaper besides variety or nitrogen
 #feh --bg-scale ~/.config/bspwm/wall.png &
@@ -28,10 +28,9 @@ $HOME/.config/polybar/launch.sh &
 xsetroot -cursor_name left_ptr &
 run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 
-#conky -c $HOME/.config/bspwm/system-overview &
 run nm-applet &
-run pamac-tray &
-run xfce4-power-manager &
+#run pamac-tray &
+#run xfce4-power-manager &
 numlockx on &
 #blueberry-tray &
 picom --config $HOME/.config/bspwm/picom.conf &
