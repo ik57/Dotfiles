@@ -11,10 +11,14 @@
 super + F1
 	subl
 
-# Browser
+#Browser
 super + F2
 	firefox
 
+#Vscodium
+super + F3
+	vscodium
+ 
 #Meld
 super + F5
     meld
@@ -36,8 +40,8 @@ super + d
 	rofi -show drun -theme ik57-dmenu.rasi
 
 #Htop
-super + h
-    alacritty -e htop
+#super + h
+#    alacritty -e htop
     
 # List sxhkd keybindings help menu with rofi
 super + k
@@ -118,9 +122,10 @@ ctrl + alt + a
     xfce4-appfinder
 
 #Keyboard dependent
-#termite
+#alacritty
 #ctrl + alt + KP_Enter
-#     termite
+#     alacritty
+
 
 #################################################################
 # ALT + ... KEYS
@@ -169,11 +174,11 @@ ctrl + Print
 
 #Raises volume
 XF86AudioRaiseVolume
-    amixer set Master 10%+
+    amixer -D pulse set Master 10%+
 
 #Lowers volume
 XF86AudioLowerVolume
-    amixer set Master 10%-
+    amixer -D pulse set Master 10%-
 
 #Mute
 XF86AudioMute
