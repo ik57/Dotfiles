@@ -14,76 +14,67 @@
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
-margin-bottom = 0
+margin-bottom = 1
 
 [settings]
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
-throttle-output = 5
-throttle-output-for = 10
 screenchange-reload = true
+; Compositing operators
+; @see: https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-operator-t
 compositing-background = over
 compositing-foreground = over
 compositing-overline = over
-;compositing-underline = over
+compositing-underline = over
 compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = #fafafa
-format-background = #aa2F343F
-;format-underline =
+format-foreground = ${colors.text}
+format-background = ${colors.mantle}
+format-underline =
 format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
+format-spacing = 
+format-padding = 
+format-margin = 
+format-offset = 
+
+; Enables pseudo-transparency for the bar
+; If set to true the bar can be transparent without a compositor.
+pseudo-transparency = false
 
 [colors]
-; Nord theme ============
-background = #aa2F343F
-;foreground = #f3f4f5
-;alert = #d08770
-;volume-min = #a3be8c
-;volume-med = #ebcb8b
-;volume-max = #bf616a
-; =======================
+include-file = $HOME/.config/polybar/macchiato.ini
+background = ${colors.base}
+foreground = ${colors.crust}
+;===========================
 
-; Gotham theme ==========
-; background = #0a0f14
-; foreground = #99d1ce
-; alert = #d26937
-volume-min = #2aa889
-volume-med = #edb443
-volume-max = #c23127
-; =======================
-
-; INTRCPTR theme ============
-;background = ${xrdb:color0:#222}
-;background = #aa000000
-;background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #fff
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
-
-foreground = #fbfefb
+; theme ============
+;background = #282a36
+;foreground = #f8f8f2
 alert = #fd446b
-background-1 = #f2b5d4
-background-2 = #f7d6e0
-background-3 = #eae4e9
-background-4 = #b2f7ef
-background-5 = #7bdff2
+volume-min = #50fa7b
+volume-med = #f1fa8c
+volume-max = #ff5555
+;foreground-active = #6790EB
+;occupied = #cccccc
+;occupied-active = #b3c7f5
+;active = #5e81ac
 
-################################################################################
-################################################################################
-############                  MAINBAR-BSPWM                         ############
-################################################################################
-################################################################################
+;background-1 = #f2b5d4
+;background-2 = #f7d6e0
+;background-3 = #eae4e9
+;background-4 = #b2f7ef
+;background-5 = #7bdff2
+; =======================
 
+#	.___  ___.      ___       __  .__   __. .______        ___      .______              .______        _______..______   ____    __    ____ .___  ___. 
+#	|   \/   |     /   \     |  | |  \ |  | |   _  \      /   \     |   _  \             |   _  \      /       ||   _  \  \   \  /  \  /   / |   \/   | 
+#	|  \  /  |    /  ^  \    |  | |   \|  | |  |_)  |    /  ^  \    |  |_)  |     ______ |  |_)  |    |   (----`|  |_)  |  \   \/    \/   /  |  \  /  | 
+#	|  |\/|  |   /  /_\  \   |  | |  . `  | |   _  <    /  /_\  \   |      /     |______||   _  <      \   \    |   ___/    \            /   |  |\/|  | 
+#	|  |  |  |  /  _____  \  |  | |  |\   | |  |_)  |  /  _____  \  |  |\  \----.        |  |_)  | .----)   |   |  |         \    /\    /    |  |  |  | 
+#	|__|  |__| /__/     \__\ |__| |__| \__| |______/  /__/     \__\ | _| `._____|        |______/  |_______/    | _|          \__/  \__/     |__|  |__| 
+                                                                                                                                       
 [bar/mainbar-bspwm]
 monitor = ${env:MONITOR}
-;monitor-fallback = HDMI1
 width = 100%
 height = 32
 ;offset-x = 1%
@@ -93,11 +84,9 @@ fixed-center = true
 bottom = false
 ;separator = |
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 2
-line-color = #70d6ff
+background = ${colors.mantle}
+;line-size = 2
+;line-color = #70d6ff
 
 wm-restack = bspwm
 override-redirect = true
@@ -116,56 +105,43 @@ border-size = 0
 padding-left =  0
 padding-right = 0
 
-module-margin-left =  0
+module-margin-left =  1
 module-margin-right = 0
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "JetBrainsMono:style=Regular:size=10;0"
-font-1 = "FontAwesome:size=14;0"
-font-2 = "JetBrainsMono:style=Regular:size=13;0"
+font-0 = "JetBrainsMono Nerd Font:style=Regular:size=12;0"
+font-1 = "Font Awesome 5 Free:size=14;0"
+font-2 = "JetBrainsMono Nerd Font:style=Regular:size=14;0"
 font-3 = "Unifont:style:Bold:size=14;0"
-font-4 = "JetBrainsMono:style=Bold:size=16;0"
+font-4 = "JetBrainsMono Nerd Font:style=Bold:size=21;0"
 
 modules-left =   bspwm
 modules-center = xwindow
-modules-right =  pavolume sep weather sep toggle_kb xkeyboard sep date sep
+modules-right =  pavolume sep toggle_kb sep xkeyboard sep date
 
 tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding =  2
-tray-maxsize =  20
+tray-padding =  1
+tray-maxsize =  13
 tray-scale =    1.0
 tray-position = right
-tray-background = ${colors.background}
-
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
-################################################################################
-################################################################################
-############                       MODULE BSPWM                     ############
-################################################################################
-################################################################################
-
+#	.___  ___.   ______    _______   __    __   __       _______    .______        _______..______   ____    __    ____ .___  ___. 
+#	|   \/   |  /  __  \  |       \ |  |  |  | |  |     |   ____|   |   _  \      /       ||   _  \  \   \  /  \  /   / |   \/   | 
+#	|  \  /  | |  |  |  | |  .--.  ||  |  |  | |  |     |  |__      |  |_)  |    |   (----`|  |_)  |  \   \/    \/   /  |  \  /  | 
+#	|  |\/|  | |  |  |  | |  |  |  ||  |  |  | |  |     |   __|     |   _  <      \   \    |   ___/    \            /   |  |\/|  | 
+#	|  |  |  | |  `--'  | |  '--'  ||  `--'  | |  `----.|  |____    |  |_)  | .----)   |   |  |         \    /\    /    |  |  |  | 
+#	|__|  |__|  \______/  |_______/  \______/  |_______||_______|   |______/  |_______/    | _|          \__/  \__/     |__|  |__| 
+                                                                                                                               
 [module/bspwm]
 type = internal/bspwm
-
 enable-click = true
 enable-scroll = true
 reverse-scroll = true
 pin-workspaces = true
-
-;ws-icon-0 = 1;
-;ws-icon-1 = 2;
-;ws-icon-2 = 3;
-;ws-icon-3 = 4;
-;ws-icon-4 = 5;
-;ws-icon-5 = 6;
-;ws-icon-6 = 7;
-;ws-icon-7 = 8;
-;ws-icon-8 = 9;
-;ws-icon-9 = 10; -->
 
 ws-icon-0 = 1;1
 ws-icon-1 = 2;2
@@ -174,163 +150,65 @@ ws-icon-3 = 4;4
 ws-icon-4 = 5;5
 ws-icon-5 = 6;6
 ws-icon-6 = 7;7
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9
-ws-icon-9 = 10;10
-ws-icon-default = " "
-
 
 format = <label-state> <label-mode>
 format-font = 1
 
 label-focused = %icon%
-label-focused-background = #1d242d
-;label-focused-underline= #6790eb
+label-focused-background = ${colors.crust}
 label-focused-padding = 4
-label-focused-foreground = #01baef
+label-focused-foreground = ${colors.text}
 label-focused-font = 5
 
 label-occupied = %icon%
 label-occupied-padding = 2
-label-occupied-background = ${colors.background}
-label-occupied-foreground = #edf2f4
+label-occupied-foreground = ${colors.subtext1}
 label-occupied-font = 3
-
 
 label-urgent = %icon%
 label-urgent-padding = 2
-label-urgent-background = ${colors.alert}
 
 label-empty = %icon%
-label-empty-foreground = #8d99ae
+label-empty-foreground = #363a4f
 label-empty-padding = 2
-label-empty-background = ${colors.background}
+;label-empty-background = ${colors.mauve}
 label-monocle = "   monocle"
-label-monocle-foreground = #fbfefb
+label-monocle-foreground = ${colors.mauve}
 label-tiled = "   tiled"
-label-tiled-foreground = #fbfefb
+label-tiled-foreground = ${colors.maroon}
 label-fullscreen = "   fullscreen"
-label-fullscreen-foreground = #fbfefb
+label-fullscreen-foreground = ${colors.mauve}
 label-floating = "   floating"
-label-floating-foreground = #fbfefb
+label-floating-foreground = ${colors.mauve}
 label-pseudotiled = "   pseudotiled"
-label-pseudotiled-foreground = #fbfefb
+label-pseudotiled-foreground = ${colors.mauve}
 label-locked = "  locked"
-label-locked-foreground = #fbfefb
+label-locked-foreground = ${colors.mauve}
 label-sticky = "   sticky"
-label-sticky-foreground = #fbfefb
+label-sticky-foreground = ${colors.mauve}
 label-private =  "      private"
-label-private-foreground = #fbfefb
+label-private-foreground = ${colors.mauve}
 
 ; Separator in between workspaces
 ;label-separator = |
 ;label-separator-padding = 10
 ;label-separator-foreground = #6f716e
 
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-
-################################################################################
-###############################################################################
-############                       MODULES A-Z                      ############
-################################################################################
-################################################################################
-
+#			|\/|/~\|~\| || (~(~
+#			|  |\_/|_/|_||_(__)
+                 
 [module/date]
 ;https://github.com/jaagr/polybar/wiki/Module:-date
 type = internal/date
 ; Seconds to sleep between updates
-interval = 5
+interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 ;date = " %Y-%m-%d%"
 ;date-alt = " %d-%m-%Y"
-time = %r
+time = %I:%M
 time-alt = %c
-;format-prefix = " "
-;format-prefix-foreground = #c1941a
-;format-underline = #1b2432
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
 label = %date% %time%
-format-padding = 2
-
-#################################################################
-
-[module/ewmh]
-type = internal/xworkspaces
-
-pin-workspaces = false
-enable-click = true
-enable-scroll = true
-reverse-scroll = true
-
-
-icon-0 = 1;
-icon-1 = 2;
-icon-2 = 3;
-icon-3 = 4;
-icon-4 = 5;
-#icon-5 = 6;
-format = <label-state>
-label-monitor = %name%
-
-label-active = %name%
-label-active-foreground = ${colors.foreground}
-label-active-background = ${colors.background}
-;label-active-underline= #6790eb
-label-active-padding = 2
-
-label-occupied = %name%
-label-occupied-background = ${colors.background}
-label-occupied-padding = 2
-
-label-urgent = %name%
-label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.alert}
-;label-urgent-underline = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %name%
-label-empty-foreground = ${colors.foreground}
-label-empty-padding = 2
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-################################################################################
-
-[module/networkspeedup]
-;https://github.com/jaagr/polybar/wiki/Module:-network
-type = internal/network
-;interface = wlp3s0
-;interface = enp14s0
-interface = enp0s31f6
-;interface = enp4s0
-label-connected = "%upspeed:7%"
-format-connected = <label-connected>
-format-connected-prefix = ""
-format-connected-prefix-foreground = #FE522C
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
-;format-connected-underline = #62FF00
-
-################################################################################
-
-[module/networkspeeddown]
-;https://github.com/jaagr/polybar/wiki/Module:-network
-type = internal/network
-;interface = wlp3s0
-;interface = enp14s0
-interface = enp0s31f6
-;interface = enp4s0
-label-connected = "%downspeed:7%"
-format-connected = <label-connected>
-format-connected-prefix = ""
-format-connected-prefix-foreground = #3EC13F
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
-;format-connected-underline = #62FF00
 
 ################################################################################
 
@@ -343,170 +221,23 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-;format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 2
-
-################################################################################
-
-[module/pub-ip]
-;https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-system
-type = custom/script
-exec = ~/.config/polybar/scripts/pub-ip.sh
-interval = 100
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-;format-underline = #FFBB00
-label = %output%
-format-prefix = "  "
-format-prefix-foreground = #FFBB00
-
-################################################################################
-
-[module/volume]
-;https://github.com/jaagr/polybar/wiki/Module:-volume
-type = internal/volume
-format-volume = "<label-volume>  <bar-volume>"
-
-label-volume = " "
-label-volume-foreground = #40ad4b
-label-muted = muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #40ad4b
-bar-volume-foreground-1 = #40ad4b
-bar-volume-foreground-2 = #40ad4b
-bar-volume-foreground-3 = #40ad4b
-bar-volume-foreground-4 = #40ad4b
-bar-volume-foreground-5 = #40ad4b
-bar-volume-foreground-6 = #40ad4b
-bar-volume-gradient = false
-bar-volume-indicator = 
-bar-volume-indicator-font = 2
-bar-volume-fill = 
-bar-volume-fill-font = 2
-bar-volume-empty = 
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground}
-format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.background}
-format-muted-prefix = "  "
-format-muted-prefix-foreground = "#ff0000"
-format-muted-foreground = ${colors.foreground}
-format-muted-background = ${colors.background}
 
 ################################################################################
 
 [module/weather]
 type = custom/script
-interval = 420
+interval = 75750
 format = <label>
-;format-prefix = " "
-;format-prefix-foreground = #3EC13F
-;format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 2
 exec = python -u ~/.config/polybar/scripts/weather.py
 tail = true
 
 #################################################################################
 
-[module/wired-network]
-;https://github.com/jaagr/polybar/wiki/Module:-network
-type = internal/network
-interface = enp4s0
-;interface = enp14s0
-interval = 3.0
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-; Default: %ifname% %local_ip%
-label-connected =  %ifname%
-label-disconnected = %ifname% disconnected
-
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
-;format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = #55aa55
-format-connected-prefix-background = ${colors.background}
-
-format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${colors.alert}
-label-disconnected-foreground = ${colors.foreground}
-
-################################################################################
-
-[module/wireless-network]
-;https://github.com/jaagr/polybar/wiki/Module:-network
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-label-connected = %essid%
-
-format-connected = <label-connected>
-format-connected-padding = 2
-;format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
-;format-connected-prefix = "  " 
-;format-connected-prefix-foreground = #121420
-;format-connected-prefix-background = ${colors.background-1}
-;format-connected-underline = #7e52c6
-
-label-disconnected = %essid% Disconnected
-label-disconnected-foreground = #edf2f4
-label-disconnected-background = ${colors.alert}
-
-format-disconnected = <label-disconnected>
-format-disconnected-foreground = #edf2f4
-format-disconnected-background = ${colors.alert}
-format-disconnected-prefix = " ! "
-format-disconnected-prefix-foreground = #edf2f4
-format-disconnected-prefix-background = ${colors.alert}
-;format-disconnected-underline =${colors.alert}
-
-ramp-signal-0 = ▁
-ramp-signal-1 = ▂
-ramp-signal-2 = ▃
-ramp-signal-3 = ▄
-ramp-signal-4 = ▅
-ramp-signal-5 = ▆
-ramp-signal-6 = ▇
-ramp-signal-7 = █
-ramp-signal-foreground = #7e52c6
-
-################################################################################
-
 [module/xkeyboard]
 ;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
 type = internal/xkeyboard
 blacklist-0 = num lock
-
-;format-prefix = " "
-;format-spacing = 0
-;format-padding = 2
-;format-prefix-foreground = ${colors.foreground}
-;format-prefix-background = ${colors.background-3}
-;format-prefix-underline = #3ecfb2
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
 label-layout = %name%
-;label-layout-margin = 1
-;label-layout-underline = #3ecfb2
-;label-indicator-padding = 2
-;label-indicator-margin = 2
-label-indicator-background = ${colors.background}
-;label-indicator-underline = ${colors.foreground}
 
 ################################################################################
 
@@ -519,22 +250,15 @@ type = internal/xwindow
 ; Default: %title%
 format = <label>
 format-font = 4
-format-padding = 2
 label = %title%
 label-maxlen = 75
-
-format-foreground = #fbfefb
-format-background = ${colors.background}
 
 ###############################################################################
 
 [module/toggle_kb]
 type = custom/script
-exec = echo 'Toggle KB |'
+exec = echo 'Toggle KB'
 click-left = ~/.config/polybar/scripts/toggle_kb.sh
-format-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
 
 ###############################################################################
 
@@ -543,5 +267,4 @@ format-background = ${colors.background}
 [module/sep]
 type = custom/text
 content = |
-content-foreground = ${colors.foreground}
-content-padding = 0
+content-foreground = ${colors.maroon}
