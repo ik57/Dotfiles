@@ -222,7 +222,7 @@ XF86MonBrightnessDown
 #########################
 
 #Hide polybar
-super + y
+super + h
     polybar-msg cmd toggle
 
 #################################################################
